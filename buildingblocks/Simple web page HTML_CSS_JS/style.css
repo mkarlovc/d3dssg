@@ -1,0 +1,18 @@
+.box {
+  width: 400px;
+  height: 100px;
+  border: solid black 4px;
+  margin: 20px;
+  text-align: center;
+  font-family: serif;
+}
+
+#first_div {
+ background-color: #FAB8FF;
+}
+
+#second_div {
+  background-color: #FF530C;
+}
+
+
