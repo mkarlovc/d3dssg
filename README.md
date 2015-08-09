@@ -312,6 +312,7 @@ mySquare.transition()
     .duration(2000);
 ```
 #### Transition using binded data
+http://mkarlovc.github.io/d3dssg/buildingblocks/14.html
 ```
 //Width and height
 var w = 900;
@@ -390,6 +391,7 @@ setInterval(function(){
 ```
 # Binding events
 #### Binding event on SVG element
+http://mkarlovc.github.io/d3dssg/buildingblocks/15.html
 ```
 //Width and height
 var w = 900;
@@ -448,3 +450,14 @@ var lbls = svg.selectAll("text")
               .attr("font-size", "11px")
               .attr("fill", "white");
 ```
+# Resources
+#### Scott Murray's D3 tutorial http://alignedleft.com/tutorials/d3
+Many parts of this tutorial were addaptred from the Scott's tutorial
+#### Mike Bostock's D3 tutorial http://bost.ocks.org/mike/d3/workshop/#63
+Another very nice tutorial in form of presentation
+#### Chris Viau's D3 http://christopheviau.com/d3_tutorial/
+Tutorial with some nice examples
+#### Transitions http://blog.visual.ly/creating-animations-and-transitions-with-d3-js/
+Good explanations and illustrations of transitions
+#### D3.js examples https://github.com/mbostock/d3/wiki/Gallery
+Bunch of inspiring examples made with D3
