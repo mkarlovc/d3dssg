@@ -1,8 +1,56 @@
-# d3dssg
-D3.js teachout at DSSG 2015
+# D3.js teachout at DSSG 2015
+
+# Visualizing Data with Web Standards
+D3 is a **JavaScript** library that makes visualization easier without introducing a new way of representing an image, but doing transformations using existing standards - namely **HTML**, **CSS** and **SVG**.
 
 # Fundementals
-Empty html page referencing css and js:
+#### HTML
+Hypertext Markup Language is used to structure content for web browsers. The simplest HTML page looks like this:
+```<html>
+    <head>
+        <title>Page Title</title>
+    </head>
+    <body>
+        <h1>Page Title</h1>
+        <p>This is a really interesting paragraph.</p>
+    </body>
+</html>
+```
+#### CSS
+Cascading Style Sheets are used to style the visual presentation of HTML pages. A simple CSS stylesheet looks like this:
+```
+body {
+    background-color: white;
+    color: black;
+}
+```
+CSS ZEN Garden illustration of separation of content and style: http://www.csszengarden.com/
+#### SVG
+SVG is a text-based image format. Meaning, you can specify what an SVG image should look like by writing simple markup code, sort of like HTML tags. SVG code can be included directly within any HTML document.
+```
+<svg width="50" height="50">
+    <circle cx="25" cy="25" r="22"
+     fill="blue" stroke="gray" stroke-width="2"/>
+</svg>
+```
+#### JavaScript
+JavaScript is a dynamic scripting language that can instruct the browser to make changes to a page after it has already loaded.
+Scripts can be included directly in HTML, between two script tags:
+```<body>
+    <script type="text/javascript">
+        alert("Hello, world!");
+    </script>
+</body>
+```
+or stored in a separate file, and then referenced somewhere the HTML (commonly in the head):
+```
+<head>
+    <title>Page Title</title>
+    <script type="text/javascript" src="myscript.js"></script>
+</head>
+```
+#### Empty html page referencing css and js
+http://mkarlovc.github.io/d3dssg/simple_HTML_CSS_JS/index.html
 ```
 <html>
   <head>
@@ -19,7 +67,9 @@ Empty html page referencing css and js:
 </body>
 </html>
 ```
-style.css
+#### Style
+http://mkarlovc.github.io/d3dssg/simple_HTML_CSS_JS/style.css
+
 ```
 .box {
   width: 400px;
@@ -39,7 +89,8 @@ style.css
 }
 
 ```
-client.js
+#### JavaScript client side interactions
+http://mkarlovc.github.io/d3dssg/simple_HTML_CSS_JS/client.js
 ```
 $(document).ready(function(){
 
@@ -53,8 +104,14 @@ $(document).ready(function(){
 
 });
 ```
-
 # Adding elements
+1. Selects a single element from the **DOM** using CSS selector syntax
+2. Created a new **p** element and appended that to the end of our selection
+3. Set the text content of that new, empty paragraph to **“New paragraph!**”
+```
+d3.select("body").append("p").text("New paragraph!");
+```
+Example 
 ```
 <!DOCTYPE html>
 <html lang="en">
