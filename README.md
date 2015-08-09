@@ -70,6 +70,8 @@ or stored in a separate file, and then referenced somewhere the HTML (commonly i
     <script type="text/javascript" src="myscript.js"></script>
 </head>
 ```
+#### Fundemental parts
+<img src="http://mkarlovc.github.io/d3dssg/img/fundementals.png"/>
 #### Empty html page referencing css and js
 http://mkarlovc.github.io/d3dssg/simple_HTML_CSS_JS/index.html
 ```
