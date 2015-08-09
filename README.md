@@ -7,17 +7,17 @@
   * CSS
   * SVG
   * JavaScript
-* [Building blocks](#building-blocks)
-  * (Adding elements)[#adding-elements]
-  * Binding data
-  * Drawing divs
-  * Using SVG
-  * Transitions
-  * Binding events
+* [Building blocks](#adding-elements)
+  * [Adding elements](#adding-elements)
+  * [Binding data](#binding-data)
+  * [Drawing divs](#drawing-divs)
+  * [Using SVG](#using-svg)
+  * [Transitions](#transitions)
+  * [Binding events](#binding-events)
 * [Examples](#examples)
-  * Barchart
-  * Network
-  * Something different
+  * [Barchart](#barchart)
+  * [Network](#network)
+  * [Something different](#community-evolution)
 * [Resources](#resources)
   * Scott Murray tutorial
   * Transitions
@@ -454,6 +454,7 @@ var lbls = svg.selectAll("text")
 #### Barchart
 
 #### Network
+*(adapted from http://bl.ocks.org/mbostock/4062045#miserables.json)*
 CODE: https://github.com/mkarlovc/d3dssg/blob/master/examples/exp_2_net.html
 DEMO: http://mkarlovc.github.io/d3dssg/examples/exp_2_net.html
 #### Community evolution
