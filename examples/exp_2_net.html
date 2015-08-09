@@ -65,8 +65,14 @@ d3.json("miserables.json", function(error, graph) {
          d3.select(this)
          .transition()
          .duration(200)
-         .attr("r", 40)
-    })
+         .attr("r", 50)
+       })
+       .on("mouseout", function(d,i) {
+        d3.select(this)
+         .transition()
+         .duration(200)
+         .attr("r", 10)
+       })
       .call(force.drag);
 
   node.append("title")
