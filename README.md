@@ -3,10 +3,10 @@
 # Index
 
 * [Fundementals](#fundementals)
-  * HTML
-  * CSS
-  * SVG
-  * JavaScript
+  * [HTML](#html)
+  * [CSS](#css)
+  * [SVG](#svg)
+  * [JavaScript](#javascript)
 * [Building blocks](#adding-elements)
   * [Adding elements](#adding-elements)
   * [Binding data](#binding-data)
@@ -453,12 +453,13 @@ var lbls = svg.selectAll("text")
 # Examples
 #### Barchart
 
-#### Network
-*(adapted from http://bl.ocks.org/mbostock/4062045#miserables.json)*
+#### Network *(adapted from http://bl.ocks.org/mbostock/4062045#miserables.json)*
 CODE: https://github.com/mkarlovc/d3dssg/blob/master/examples/exp_2_net.html
+
 DEMO: http://mkarlovc.github.io/d3dssg/examples/exp_2_net.html
 #### Community evolution
 CODE: https://github.com/mkarlovc/d3dssg/blob/master/examples/exp_3_cmty.html
+
 DEMO: http://mkarlovc.github.io/d3dssg/examples/exp_3_cmty.html
 
 # Resources
