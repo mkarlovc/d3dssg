@@ -241,52 +241,52 @@ Layering and Drawing Order depends on initialization of objects
 
 SVG object can be transparent and have bumch of other controlable attributes.
 #### Binding data and drawing SVG
-file:///home/mario/d3dssg/buildingblocks/11.html
+http://mkarlovc.github.io/d3dssg/buildingblocks/11.html
 ```
 var dataset = [ 5, 10, 15, 20, 25 ];
-    //Width and height
-    var w = 500;
-    var h = 50;
-    
-    var svg = d3.select("body")
-            .append("svg")
-            .attr("width", 500)
-            .attr("height", 50);
+//Width and height
+var w = 500;
+var h = 50;
 
-    var circles = svg.selectAll("circle")
-                 .data(dataset)
-                 .enter()
-                 .append("circle");
-    
-    circles.attr("cx", function(d, i) {return (i * 50) + 25;})
-           .attr("cy", h/2)
-           .attr("r", function(d) {return d;});
+var svg = d3.select("body")
+    .append("svg")
+    .attr("width", 500)
+    .attr("height", 50);
+
+var circles = svg.selectAll("circle")
+    .data(dataset)
+    .enter()
+    .append("circle");
+
+circles.attr("cx", function(d, i) {return (i * 50) + 25;})
+   .attr("cy", h/2)
+   .attr("r", function(d) {return d;});
 ```
 #### Changing style
-file:///home/mario/d3dssg/buildingblocks/12.html
+http://mkarlovc.github.io/d3dssg/buildingblocks/12.html
 ```
 var dataset = [ 5, 10, 15, 20, 25 ];
-    //Width and height
-    var w = 800;
-    var h = 200;
+//Width and height
+var w = 800;
+var h = 200;
     
-    var svg = d3.select("body")
-            .append("svg")
-            .attr("width", w)
-            .attr("height", h);
+var svg = d3.select("body")
+    .append("svg")
+    .attr("width", w)
+    .attr("height", h);
 
-    var circles = svg.selectAll("circle")
-                 .data(dataset)
-                 .enter()
-                 .append("circle");
-    
-    circles.attr("cx", function(d, i) {return (i * 50) + 100;})
-           .attr("cy", h/2)
-           .attr("r", function(d) {return d*2;})
-           .attr("fill", "yellow")
-           .attr("stroke", "orange")
-           .attr("fill-opacity","0.7")
-           .attr("stroke-width", function(d) {return d/2;});
+var circles = svg.selectAll("circle")
+    .data(dataset)
+    .enter()
+    .append("circle");
+
+circles.attr("cx", function(d, i) {return (i * 50) + 100;})
+   .attr("cy", h/2)
+   .attr("r", function(d) {return d*2;})
+   .attr("fill", "yellow")
+   .attr("stroke", "orange")
+   .attr("fill-opacity","0.7")
+   .attr("stroke-width", function(d) {return d/2;});
 ```
 # Transitions
 #### Simple location transition
@@ -301,10 +301,10 @@ var svg = d3.select("body")
     .attr("height", h);
 
 var mySquare = svg.append("rect")
-              .attr("x",60)
-              .attr("y",60)
-              .attr("width",60)
-              .attr("height",60);
+    .attr("x",60)
+    .attr("y",60)
+    .attr("width",60)
+    .attr("height",60);
 
 mySquare.transition()
     .attr("x",320)
