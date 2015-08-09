@@ -26,7 +26,7 @@ body {
 ```
 CSS ZEN Garden illustration of separation of content and style: http://www.csszengarden.com/
 #### SVG
-SVG is a text-based image format. Meaning, you can specify what an SVG image should look like by writing simple markup code, sort of like HTML tags. SVG code can be included directly within any HTML document.
+SVG is a text-based image format, meaning you can specify what an SVG image should look like by writing simple markup code, sort of like HTML tags. SVG code can be included directly within any HTML document.
 ```
 <svg width="50" height="50">
     <circle cx="25" cy="25" r="22"
@@ -111,7 +111,7 @@ $(document).ready(function(){
 ```
 d3.select("body").append("p").text("New paragraph!");
 ```
-Example 
+http://mkarlovc.github.io/d3dssg/buildingblocks/2.html
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -130,24 +130,19 @@ Example
   </body>
 </html>
 ```
+# Binding data
+With D3, we bind our data input values to elements in the DOM. Binding is like “attaching” or associating data to specific elements, so that later you can reference those values to apply mapping rules.
 
+Handling different kinds of data: array of numbers, strings, or objects, JSON (and GeoJSON).
+
+http://mkarlovc.github.io/d3dssg/buildingblocks/3.html:
 ```
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>D3 Test</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
-  </head>
-  <body>
-    <script type="text/javascript">
-      d3.select("body")
-        .append("p")
-        .text("New paragraph!");
-    </script>
-  </body>
-</html>
+var dataset = [ 5, 10, 15, 20, 25 ];
+d3.select("body").selectAll("p")
+    .data(dataset)
+    .enter()
+    .append("p")
+    .text("New paragraph!");
 ```
 # Transitions
 
