@@ -462,7 +462,7 @@ DEMO: http://mkarlovc.github.io/d3dssg/examples/exp_3_cmty.html
 
 # Resources
 #### Scott Murray's D3 tutorial http://alignedleft.com/tutorials/d3
-Many parts of this tutorial were addaptred from the Scott's tutorial
+Many parts of this tutorial were addapted from the Scott's tutorial
 #### Mike Bostock's D3 tutorial http://bost.ocks.org/mike/d3/workshop/#63
 Another very nice tutorial in form of presentation
 #### Chris Viau's D3 http://christopheviau.com/d3_tutorial/
