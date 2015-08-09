@@ -2,7 +2,7 @@
 D3.js teachout at DSSG 2015
 
 # Fundementals
-Empty html page referencing css and js
+#### Empty html page referencing css and js
 http://mkarlovc.github.io/d3dssg/simple_HTML_CSS_JS/index.html
 ```
 <html>
@@ -20,8 +20,9 @@ http://mkarlovc.github.io/d3dssg/simple_HTML_CSS_JS/index.html
 </body>
 </html>
 ```
+#### Style
 http://mkarlovc.github.io/d3dssg/simple_HTML_CSS_JS/style.css
-style.css
+
 ```
 .box {
   width: 400px;
@@ -41,8 +42,8 @@ style.css
 }
 
 ```
+#### JavaScript client side interactions
 http://mkarlovc.github.io/d3dssg/simple_HTML_CSS_JS/client.js
-client.js
 ```
 $(document).ready(function(){
 
