@@ -1,5 +1,7 @@
-# d3dssg
-D3.js teachout at DSSG 2015
+# D3.js teachout at DSSG 2015
+
+# Visualizing Data with Web Standards
+D3 is a **JavaScript** library that makes visualization easier without introducing a new way of representing an image, but doing transformations using existing standards - namely **HTML**, **CSS** and **SVG**.
 
 # Fundementals
 #### Empty html page referencing css and js
