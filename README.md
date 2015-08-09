@@ -19,9 +19,6 @@
   * [Network](#network)
   * [Something different](#community-evolution)
 * [Resources](#resources)
-  * Scott Murray tutorial
-  * Transitions
-  * D3.js examples
  
 # Visualizing Data with Web Standards
 D3 is a **JavaScript** library that makes visualization easier without introducing a new way of representing an image, but doing transformations using existing standards - namely **HTML**, **CSS** and **SVG**.
