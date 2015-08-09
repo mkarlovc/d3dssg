@@ -26,7 +26,7 @@ body {
 ```
 CSS ZEN Garden illustration of separation of content and style: http://www.csszengarden.com/
 #### SVG
-SVG is a text-based image format. Meaning, you can specify what an SVG image should look like by writing simple markup code, sort of like HTML tags. SVG code can be included directly within any HTML document.
+SVG is a text-based image format, meaning you can specify what an SVG image should look like by writing simple markup code, sort of like HTML tags. SVG code can be included directly within any HTML document.
 ```
 <svg width="50" height="50">
     <circle cx="25" cy="25" r="22"
