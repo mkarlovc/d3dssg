@@ -59,7 +59,8 @@ SVG is a text-based image format, meaning you can specify what an SVG image shou
 #### JavaScript
 JavaScript is a dynamic scripting language that can instruct the browser to make changes to a page after it has already loaded.
 Scripts can be included directly in HTML, between two script tags:
-```<body>
+```
+<body>
     <script type="text/javascript">
         alert("Hello, world!");
     </script>
