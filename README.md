@@ -135,6 +135,7 @@ With D3, we bind our data input values to elements in the DOM. Binding is like â
 
 Handling different kinds of data: array of numbers, strings, or objects, JSON (and GeoJSON).
 
+#### Example of using array of numbers
 http://mkarlovc.github.io/d3dssg/buildingblocks/3.html:
 ```
 var dataset = [ 5, 10, 15, 20, 25 ];
@@ -144,6 +145,28 @@ d3.select("body").selectAll("p")
     .append("p")
     .text("New paragraph!");
 ```
+#### Passing values to functions
+http://mkarlovc.github.io/d3dssg/buildingblocks/4.html
+```
+var dataset = [ 5, 10, 15, 20, 25 ];
+d3.select("body").selectAll("p")
+    .data(dataset)
+    .enter()
+    .append("p")
+    .text(function(d) { return "Paragraph value "+d; });
+```
+#### Adding attributes
+http://mkarlovc.github.io/d3dssg/buildingblocks/5.html
+```
+var dataset = [ 5, 10, 15, 20, 25 ];
+      d3.select("body").selectAll("p")
+        .data(dataset)
+        .enter()
+        .append("p")
+        .text(function(d) { return "Paragraph value "+d; })
+        .style("color", "red");
+```
+    
 # Transitions
 
 ```
