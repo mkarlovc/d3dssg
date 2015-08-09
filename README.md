@@ -290,7 +290,7 @@ circles.attr("cx", function(d, i) {return (i * 50) + 100;})
    .attr("stroke-width", function(d) {return d/2;});
 ```
 # Transitions
-#### Simple location transition
+#### Simple position transition
 http://mkarlovc.github.io/d3dssg/buildingblocks/13.html
 ```
  w = 800;
@@ -311,3 +311,104 @@ mySquare.transition()
     .attr("x",320)
     .duration(2000);
 ```
+#### Transition using binded data
+```
+//Width and height
+var w = 900;
+var h = 300;
+var barPadding = 1;
+
+function sortNumber(a,b) {
+return a - b;
+}
+
+function rnd_nums(from, to, N) {
+var dataset_ = [];
+for (var i = 0; i < N; i++) {
+var newNumber = from + (Math.random() * to);  
+dataset_ = dataset_.concat(newNumber); 
+}
+dataset_ = dataset_.sort(sortNumber)
+return dataset_
+}
+
+var from = 5;
+var to = 60;
+var bars = 25;
+dataset = rnd_nums(from,to,bars);
+
+//Create SVG element
+var svg = d3.select("body")
+        .append("svg")
+	.attr("width", w)
+	.attr("height", h);
+
+svg.selectAll("rect")
+.data(dataset)
+.enter()
+.append("rect")
+.attr("x", function(d, i) {
+    return i * (w / dataset.length);
+})
+.attr("y", function(d) {
+       return h - (d * 4);
+})
+.attr("width", w / dataset.length - barPadding)
+.attr("height", function(d) {
+    return d * 4;
+})
+.attr("fill", function(d) {
+    return "rgb(0, 138, " + (parseInt((d/60) * 225)) + ")";
+});
+
+svg.selectAll("text")
+.data(dataset)
+.enter()
+.append("text")
+.text(function(d) { return parseInt(d);})
+.attr("text-anchor", "middle")
+.attr("x", function(d, i) {
+       return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2;
+})
+.attr("y", function(d) {
+       return h - (d * 4) + 14;
+})
+.attr("font-family", "sans-serif")
+.attr("font-size", "11px")
+.attr("fill", "white");
+
+setInterval(function(){
+nds = rnd_nums(from,to,bars);
+
+svg.selectAll("rect")
+ .data(nds)
+ .transition()
+ .attr("x", function(d, i) {
+    return i * (w / dataset.length);
+  })
+ .attr("y", function(d) {
+       return h - (d * 4);
+  })
+ .attr("width", w / dataset.length - barPadding)
+ .attr("height", function(d) {
+    return d * 4;
+  })
+ .attr("fill", function(d) {
+    return "rgb(0, 138, " + (parseInt((d/60) * 225)) + ")";
+  });
+
+svg.selectAll("text")
+.data(nds)
+.transition()
+.text(function(d) { return parseInt(d);})
+.attr("text-anchor", "middle")
+.attr("x", function(d, i) {
+       return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2;
+ })
+.attr("y", function(d) {
+       return h - (d * 4) + 14;
+ });
+},500);
+```
+# Binding events
+#### Binding event
