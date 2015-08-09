@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>D3 Test</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../d3/d3.v3.min.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var dataset = [ 5, 10, 15, 20, 25 ];
+      d3.select("body").selectAll("p")
+        .data(dataset)
+        .enter()
+        .append("p")
+        .text(function(d) { return "Paragraph value "+d; })
+        .style("color", function(d) {
+          if (d > 15) {
+            return "red";
+          } else {
+            return "black";
+          }
+});
+    </script>
+  </body>
+</html>

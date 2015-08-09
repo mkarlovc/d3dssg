@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>D3 Test</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../d3/d3.v3.min.js"></script>
+    <style type="text/css">
+	div.bar {
+		display: inline-block;
+		width: 50px;
+		height: 200px;
+		background-color: teal;
+                margin-right: 2px;
+	}
+    </style>
+  <body>
+    <script type="text/javascript">
+    var dataset = [ 5, 10, 15, 20, 25 ];
+    //Width and height
+    var w = 800;
+    var h = 200;
+    
+    var svg = d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+
+    var circles = svg.selectAll("circle")
+                 .data(dataset)
+                 .enter()
+                 .append("circle");
+    
+    circles.attr("cx", function(d, i) {return (i * 50) + 100;})
+           .attr("cy", h/2)
+           .attr("r", function(d) {return d*2;})
+           .attr("fill", "yellow")
+           .attr("stroke", "orange")
+           .attr("fill-opacity","0.7")
+           .attr("stroke-width", function(d) {return d/2;});
+    </script>
+  </body>
+</html>
