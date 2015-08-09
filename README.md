@@ -2,23 +2,23 @@
 
 # Index
 
-* [Fundementals](# fundementals)
+* [Fundementals](#fundementals)
   * HTML
   * CSS
   * SVG
   * JavaScript
-* Building blocks
-  * Adding elements
+* [Building blocks](#building-blocks)
+  * (Adding elements)[#adding-elements]
   * Binding data
   * Drawing divs
   * Using SVG
   * Transitions
   * Binding events
-* Examples
+* [Examples](#examples)
   * Barchart
   * Network
   * Something different
-* Resources
+* [Resources](#resources)
   * Scott Murray tutorial
   * Transitions
   * D3.js examples
