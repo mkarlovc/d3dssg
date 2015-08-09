@@ -59,7 +59,8 @@ SVG is a text-based image format, meaning you can specify what an SVG image shou
 #### JavaScript
 JavaScript is a dynamic scripting language that can instruct the browser to make changes to a page after it has already loaded.
 Scripts can be included directly in HTML, between two script tags:
-```<body>
+```
+<body>
     <script type="text/javascript">
         alert("Hello, world!");
     </script>
@@ -241,55 +242,55 @@ Layering and Drawing Order depends on initialization of objects
 
 SVG object can be transparent and have bumch of other controlable attributes.
 #### Binding data and drawing SVG
-file:///home/mario/d3dssg/buildingblocks/11.html
+http://mkarlovc.github.io/d3dssg/buildingblocks/11.html
 ```
 var dataset = [ 5, 10, 15, 20, 25 ];
-    //Width and height
-    var w = 500;
-    var h = 50;
-    
-    var svg = d3.select("body")
-            .append("svg")
-            .attr("width", 500)
-            .attr("height", 50);
+//Width and height
+var w = 500;
+var h = 50;
 
-    var circles = svg.selectAll("circle")
-                 .data(dataset)
-                 .enter()
-                 .append("circle");
-    
-    circles.attr("cx", function(d, i) {return (i * 50) + 25;})
-           .attr("cy", h/2)
-           .attr("r", function(d) {return d;});
+var svg = d3.select("body")
+    .append("svg")
+    .attr("width", 500)
+    .attr("height", 50);
+
+var circles = svg.selectAll("circle")
+    .data(dataset)
+    .enter()
+    .append("circle");
+
+circles.attr("cx", function(d, i) {return (i * 50) + 25;})
+   .attr("cy", h/2)
+   .attr("r", function(d) {return d;});
 ```
 #### Changing style
-file:///home/mario/d3dssg/buildingblocks/12.html
+http://mkarlovc.github.io/d3dssg/buildingblocks/12.html
 ```
 var dataset = [ 5, 10, 15, 20, 25 ];
-    //Width and height
-    var w = 800;
-    var h = 200;
+//Width and height
+var w = 800;
+var h = 200;
     
-    var svg = d3.select("body")
-            .append("svg")
-            .attr("width", w)
-            .attr("height", h);
+var svg = d3.select("body")
+    .append("svg")
+    .attr("width", w)
+    .attr("height", h);
 
-    var circles = svg.selectAll("circle")
-                 .data(dataset)
-                 .enter()
-                 .append("circle");
-    
-    circles.attr("cx", function(d, i) {return (i * 50) + 100;})
-           .attr("cy", h/2)
-           .attr("r", function(d) {return d*2;})
-           .attr("fill", "yellow")
-           .attr("stroke", "orange")
-           .attr("fill-opacity","0.7")
-           .attr("stroke-width", function(d) {return d/2;});
+var circles = svg.selectAll("circle")
+    .data(dataset)
+    .enter()
+    .append("circle");
+
+circles.attr("cx", function(d, i) {return (i * 50) + 100;})
+   .attr("cy", h/2)
+   .attr("r", function(d) {return d*2;})
+   .attr("fill", "yellow")
+   .attr("stroke", "orange")
+   .attr("fill-opacity","0.7")
+   .attr("stroke-width", function(d) {return d/2;});
 ```
 # Transitions
-#### Simple location transition
+#### Simple position transition
 http://mkarlovc.github.io/d3dssg/buildingblocks/13.html
 ```
  w = 800;
@@ -301,12 +302,149 @@ var svg = d3.select("body")
     .attr("height", h);
 
 var mySquare = svg.append("rect")
-              .attr("x",60)
-              .attr("y",60)
-              .attr("width",60)
-              .attr("height",60);
+    .attr("x",60)
+    .attr("y",60)
+    .attr("width",60)
+    .attr("height",60);
 
 mySquare.transition()
     .attr("x",320)
     .duration(2000);
+```
+#### Transition using binded data
+```
+//Width and height
+var w = 900;
+var h = 300;
+var barPadding = 1;
+
+function sortNumber(a,b) {
+return a - b;
+}
+
+function rnd_nums(from, to, N) {
+var dataset_ = [];
+for (var i = 0; i < N; i++) {
+var newNumber = from + (Math.random() * to);  
+dataset_ = dataset_.concat(newNumber); 
+}
+dataset_ = dataset_.sort(sortNumber)
+return dataset_
+}
+
+var from = 5;
+var to = 60;
+var bars = 25;
+dataset = rnd_nums(from,to,bars);
+
+//Create SVG element
+var svg = d3.select("body")
+        .append("svg")
+	.attr("width", w)
+	.attr("height", h);
+
+svg.selectAll("rect")
+   .data(dataset)
+   .enter()
+   .append("rect")
+   .attr("x", function(d, i) { return i * (w / dataset.length); })
+   .attr("y", function(d) { return h - (d * 4); })
+   .attr("width", w / dataset.length - barPadding)
+   .attr("height", function(d) { return d * 4; })
+   .attr("fill", function(d) { return "rgb(0, 138, " + (parseInt((d/60) * 225)) + ")"; });
+
+svg.selectAll("text")
+   .data(dataset)
+   .enter()
+   .append("text")
+   .text(function(d) { return parseInt(d);}) 
+   .attr("text-anchor", "middle")
+   .attr("x", function(d, i) {return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2;})
+   .attr("y", function(d) { return h - (d * 4) + 14; })
+   .attr("font-family", "sans-serif")
+   .attr("font-size", "11px")
+   .attr("fill", "white");
+
+setInterval(function(){
+
+  nds = rnd_nums(from,to,bars);
+
+  svg.selectAll("rect")
+     .data(nds)
+     .transition()
+     .attr("x", function(d, i) { return i * (w / dataset.length); })
+     .attr("y", function(d) { return h - (d * 4); })
+     .attr("width", w / dataset.length - barPadding)
+     .attr("height", function(d) { return d * 4; })
+     .attr("fill", function(d) { return "rgb(0, 138, " + (parseInt((d/60) * 225)) + ")"; });
+
+  svg.selectAll("text")
+     .data(nds)
+     .transition()
+     .text(function(d) { return parseInt(d);})
+     .attr("text-anchor", "middle")
+     .attr("x", function(d, i) { return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2; })
+     .attr("y", function(d) { return h - (d * 4) + 14; });
+
+},500);
+```
+# Binding events
+#### Binding event on SVG element
+```
+//Width and height
+var w = 900;
+var h = 300;
+var barPadding = 1;
+
+function rnd_nums(from, to, N) {
+  var dataset_ = [];
+  for (var i = 0; i < N; i++) {
+    var newNumber = from + (Math.random() * to);  
+    dataset_ = dataset_.concat(newNumber); 
+  }
+  return dataset_
+}
+
+dataset = rnd_nums(5,60,25);
+
+//Create SVG element
+var svg = d3.select("body")
+            .append("svg")
+	    .attr("width", w)
+	    .attr("height", h);
+
+svg.selectAll("rect")
+   .data(dataset)
+   .enter()
+   .append("rect")
+   .attr("x", function(d, i) { return i * (w / dataset.length); })
+   .attr("y", function(d) { return h - (d * 4); })
+   .attr("width", w / dataset.length - barPadding)
+   .attr("height", function(d) { return d * 4; })
+   .attr("fill", function(d) { return "rgb(0, 138, " + (parseInt((d/60) * 225)) + ")"; })
+   .on('click', function(d,i) {
+       // handle events here
+       // d - datum
+       // i - identifier or index
+       // this - the `<rect>` that was clicked
+       nds = rnd_nums(5,60,25);
+       d3.select(this)
+         .transition()
+         .duration(300)
+         .attr("height",nds[i]*4)
+         .attr("y", h - (nds[i] * 4))
+         .attr("fill", "rgb(0, 138, " + (parseInt((nds[i]/60) * 225)) + ")");
+    });
+
+var lbls = svg.selectAll("text")
+              .data(dataset)
+              .enter()
+              .append("text")
+              .text(function(d) { return parseInt(d);})
+              .attr("text-anchor", "middle")
+              .attr("x", function(d, i) { return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2;})
+              .attr("y", function(d) { return h - (d * 4) + 14; })
+              .attr("font-family", "sans-serif")
+              .attr("font-size", "11px")
+              .attr("fill", "white");
 ```
