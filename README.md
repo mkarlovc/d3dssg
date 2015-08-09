@@ -192,6 +192,7 @@ var dataset = [ 5, 10, 15, 20, 25 ];
 # Drawing divs
 attr() is used to set an HTML attribute and its value on an element. An HTML attribute is any property/value pair that you could include between an element’s <> brackets.
 #### Binding data and drawing divs
+http://mkarlovc.github.io/d3dssg/buildingblocks/7.html
 ```
 var dataset = [ 25, 7, 5, 26, 11, 8, 25, 14, 23, 19,
                 14, 11, 22, 29, 11, 13, 12, 17, 18, 10,
@@ -203,22 +204,24 @@ d3.select("body").selectAll("div")
 	 .append("div")
 	 .attr("class", "bar");
 ```
-#### Controling height with data 
+#### Controling height with data
+http://mkarlovc.github.io/d3dssg/buildingblocks/8.html
 ```
-var dataset = [];  		     //Initialize empty array
-      for (var i = 0; i < 25; i++) {	     //Loop 25 times
-        var newNumber = Math.random() * 30;  //New random number (0-30)
-        dataset = dataset.concat(newNumber); //Add new number to array
-      }
+// random number generation
+var dataset = []; // Initialize empty array
+for (var i = 0; i < 25; i++) {	     //Loop 25 times
+  var newNumber = Math.random() * 30;  //New random number (0-30)
+  dataset = dataset.concat(newNumber); //Add new number to array
+}
 
-      d3.select("body").selectAll("div")
-	.data(dataset)
-	.enter()
-	.append("div")
-	.attr("class", "bar")
-        .style("height", function(d) {
-          return d*10 + "px";
-        });	
+d3.select("body").selectAll("div")
+  .data(dataset)
+  .enter()
+  .append("div")
+  .attr("class", "bar")
+  .style("height", function(d) {
+    return d*10 + "px";
+   });	
 ```
 # Transitions
 
