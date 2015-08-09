@@ -2,7 +2,7 @@
 
 # Index
 
-* Fundementals
+* [Fundementals](# fundementals)
   * HTML
   * CSS
   * SVG
