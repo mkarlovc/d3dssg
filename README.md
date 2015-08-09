@@ -131,9 +131,11 @@ http://mkarlovc.github.io/d3dssg/buildingblocks/2.html
 </html>
 ```
 # Binding data
-* With D3, we bind our data input values to elements in the DOM. Binding is like “attaching” or associating data to specific elements, so that later you can reference those values to apply mapping rules.
-* Handling different kinds of data: array of numbers, strings, or objects, JSON (and GeoJSON).
-http://mkarlovc.github.io/d3dssg/buildingblocks/3.html
+With D3, we bind our data input values to elements in the DOM. Binding is like “attaching” or associating data to specific elements, so that later you can reference those values to apply mapping rules.
+
+Handling different kinds of data: array of numbers, strings, or objects, JSON (and GeoJSON).
+
+http://mkarlovc.github.io/d3dssg/buildingblocks/3.html:
 ```
 var dataset = [ 5, 10, 15, 20, 25 ];
 d3.select("body").selectAll("p")
