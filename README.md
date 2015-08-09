@@ -450,6 +450,16 @@ var lbls = svg.selectAll("text")
               .attr("font-size", "11px")
               .attr("fill", "white");
 ```
+# Examples
+#### Barchart
+
+#### Network
+CODE: https://github.com/mkarlovc/d3dssg/blob/master/examples/exp_2_net.html
+DEMO: http://mkarlovc.github.io/d3dssg/examples/exp_2_net.html
+#### Community evolution
+CODE: https://github.com/mkarlovc/d3dssg/blob/master/examples/exp_3_cmty.html
+DEMO: http://mkarlovc.github.io/d3dssg/examples/exp_3_cmty.html
+
 # Resources
 #### Scott Murray's D3 tutorial http://alignedleft.com/tutorials/d3
 Many parts of this tutorial were addaptred from the Scott's tutorial
