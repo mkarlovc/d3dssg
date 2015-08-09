@@ -204,7 +204,7 @@ d3.select("body").selectAll("div")
 	 .append("div")
 	 .attr("class", "bar");
 ```
-#### Controling height with data
+#### Controling div height with data
 http://mkarlovc.github.io/d3dssg/buildingblocks/8.html
 ```
 // random number generation
@@ -223,8 +223,90 @@ d3.select("body").selectAll("div")
     return d*10 + "px";
    });	
 ```
-# Transitions
-
+# Using SVG
+Initially create an SVG element - canvas on which your visuals are rendered: 
+http://mkarlovc.github.io/d3dssg/buildingblocks/10.html
 ```
+<svg width="500" height="50"></svg>
+```
+There are a number of visual elements that you can include between those svg tags:
+```
+<rect x="0" y="0" width="500" height="50"/>
+<circle cx="250" cy="25" r="25"/>
+<ellipse cx="250" cy="25" rx="100" ry="25"/>
+<line x1="0" y1="0" x2="500" y2="50" stroke="black"/>
+<text x="250" y="25">Easy-peasy</text>
+```
+Layering and Drawing Order depends on initialization of objects
 
+SVG object can be transparent and have bumch of other controlable attributes.
+#### Binding data and drawing SVG
+file:///home/mario/d3dssg/buildingblocks/11.html
+```
+var dataset = [ 5, 10, 15, 20, 25 ];
+    //Width and height
+    var w = 500;
+    var h = 50;
+    
+    var svg = d3.select("body")
+            .append("svg")
+            .attr("width", 500)
+            .attr("height", 50);
+
+    var circles = svg.selectAll("circle")
+                 .data(dataset)
+                 .enter()
+                 .append("circle");
+    
+    circles.attr("cx", function(d, i) {return (i * 50) + 25;})
+           .attr("cy", h/2)
+           .attr("r", function(d) {return d;});
+```
+#### Changing style
+file:///home/mario/d3dssg/buildingblocks/12.html
+```
+var dataset = [ 5, 10, 15, 20, 25 ];
+    //Width and height
+    var w = 800;
+    var h = 200;
+    
+    var svg = d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+
+    var circles = svg.selectAll("circle")
+                 .data(dataset)
+                 .enter()
+                 .append("circle");
+    
+    circles.attr("cx", function(d, i) {return (i * 50) + 100;})
+           .attr("cy", h/2)
+           .attr("r", function(d) {return d*2;})
+           .attr("fill", "yellow")
+           .attr("stroke", "orange")
+           .attr("fill-opacity","0.7")
+           .attr("stroke-width", function(d) {return d/2;});
+```
+# Transitions
+#### Simple location transition
+http://mkarlovc.github.io/d3dssg/buildingblocks/13.html
+```
+ w = 800;
+ h = 400;
+
+var svg = d3.select("body")
+    .append("svg")
+    .attr("width", w)
+    .attr("height", h);
+
+var mySquare = svg.append("rect")
+              .attr("x",60)
+              .attr("y",60)
+              .attr("width",60)
+              .attr("height",60);
+
+mySquare.transition()
+    .attr("x",320)
+    .duration(2000);
 ```
