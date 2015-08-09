@@ -7,78 +7,35 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="../d3/d3.v3.min.js"></script>
     <style type="text/css">
-
+    body{
+       background: gray
+    }
+    rect{
+      fill: red;
+      "stroke-color": grey;
+    }
     </style>
   <body>
     <script type="text/javascript">
-    //Width and height
-    var w = 900;
-    var h = 300;
-    var barPadding = 1;
 
-    function rnd_nums(from, to, N) {
-      var dataset_ = [];
-      for (var i = 0; i < N; i++) {
-        var newNumber = from + (Math.random() * to);  
-        dataset_ = dataset_.concat(newNumber); 
-      }
-      return dataset_
-    }
-   
-    dataset = rnd_nums(5,60,25);
-   
-    //Create SVG element
+    w = 800;
+    h = 400;
+
     var svg = d3.select("body")
-                .append("svg")
-		.attr("width", w)
-		.attr("height", h);
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
 
-    svg.selectAll("rect")
-       .data(dataset)
-       .enter()
-       .append("rect")
-       .attr("x", function(d, i) {
-            return i * (w / dataset.length);
-        })
-       .attr("y", function(d) {
-   	    return h - (d * 4);
-        })
-       .attr("width", w / dataset.length - barPadding)
-       .attr("height", function(d) {
-            return d * 4;
-        })
-       .attr("fill", function(d) {
-	    return "rgb(0, 138, " + (parseInt((d/60) * 225)) + ")";
-        })
-       .on('click', function(d,i) {
-            // handle events here
-            // d - datum
-            // i - identifier or index
-            // this - the `<rect>` that was clicked
-            nds = rnd_nums(5,60,25);
-            d3.select(this)
-              .transition()
-              .duration(300)
-              .attr("height",nds[i]*4)
-              .attr("y", h - (nds[i] * 4))
-              .attr("fill", "rgb(0, 138, " + (parseInt((nds[i]/60) * 225)) + ")");
-        });
+    var mySquare = svg.append("rect")
+                      .attr("x",60)
+                      .attr("y",60)
+                      .attr("width",60)
+                      .attr("height",60);
 
-    var lbls = svg.selectAll("text")
-       .data(dataset)
-       .enter()
-       .append("text")
-       .text(function(d) { return parseInt(d);})
-       .attr("text-anchor", "middle")
-       .attr("x", function(d, i) {
-   	    return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2;
-        })
-       .attr("y", function(d) {
-   	    return h - (d * 4) + 14;
-        })
-       .attr("font-family", "sans-serif")
-       .attr("font-size", "11px")
-       .attr("fill", "white");
+    mySquare.transition()
+            .attr("x",320)
+            .duration(2000);
+
     </script>
   </body>
 </html>
