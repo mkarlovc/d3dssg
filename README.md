@@ -104,8 +104,14 @@ $(document).ready(function(){
 
 });
 ```
-
 # Adding elements
+1. Selects a single element from the **DOM** using CSS selector syntax
+2. Created a new **p** element and appended that to the end of our selection
+3. Set the text content of that new, empty paragraph to **“New paragraph!**”
+```
+d3.select("body").append("p").text("New paragraph!");
+```
+Example 
 ```
 <!DOCTYPE html>
 <html lang="en">
