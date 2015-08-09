@@ -344,71 +344,107 @@ var svg = d3.select("body")
 	.attr("height", h);
 
 svg.selectAll("rect")
-.data(dataset)
-.enter()
-.append("rect")
-.attr("x", function(d, i) {
-    return i * (w / dataset.length);
-})
-.attr("y", function(d) {
-       return h - (d * 4);
-})
-.attr("width", w / dataset.length - barPadding)
-.attr("height", function(d) {
-    return d * 4;
-})
-.attr("fill", function(d) {
-    return "rgb(0, 138, " + (parseInt((d/60) * 225)) + ")";
-});
+   .data(dataset)
+   .enter()
+   .append("rect")
+   .attr("x", function(d, i) { return i * (w / dataset.length); })
+   .attr("y", function(d) { return h - (d * 4); })
+   .attr("width", w / dataset.length - barPadding)
+   .attr("height", function(d) { return d * 4; })
+   .attr("fill", function(d) { return "rgb(0, 138, " + (parseInt((d/60) * 225)) + ")"; });
 
 svg.selectAll("text")
-.data(dataset)
-.enter()
-.append("text")
-.text(function(d) { return parseInt(d);})
-.attr("text-anchor", "middle")
-.attr("x", function(d, i) {
-       return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2;
-})
-.attr("y", function(d) {
-       return h - (d * 4) + 14;
-})
-.attr("font-family", "sans-serif")
-.attr("font-size", "11px")
-.attr("fill", "white");
+   .data(dataset)
+   .enter()
+   .append("text")
+   .text(function(d) { return parseInt(d);}) 
+   .attr("text-anchor", "middle")
+   .attr("x", function(d, i) {return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2;})
+   .attr("y", function(d) { return h - (d * 4) + 14; })
+   .attr("font-family", "sans-serif")
+   .attr("font-size", "11px")
+   .attr("fill", "white");
 
 setInterval(function(){
-nds = rnd_nums(from,to,bars);
 
-svg.selectAll("rect")
- .data(nds)
- .transition()
- .attr("x", function(d, i) {
-    return i * (w / dataset.length);
-  })
- .attr("y", function(d) {
-       return h - (d * 4);
-  })
- .attr("width", w / dataset.length - barPadding)
- .attr("height", function(d) {
-    return d * 4;
-  })
- .attr("fill", function(d) {
-    return "rgb(0, 138, " + (parseInt((d/60) * 225)) + ")";
-  });
+  nds = rnd_nums(from,to,bars);
 
-svg.selectAll("text")
-.data(nds)
-.transition()
-.text(function(d) { return parseInt(d);})
-.attr("text-anchor", "middle")
-.attr("x", function(d, i) {
-       return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2;
- })
-.attr("y", function(d) {
-       return h - (d * 4) + 14;
- });
+  svg.selectAll("rect")
+     .data(nds)
+     .transition()
+     .attr("x", function(d, i) { return i * (w / dataset.length); })
+     .attr("y", function(d) { return h - (d * 4); })
+     .attr("width", w / dataset.length - barPadding)
+     .attr("height", function(d) { return d * 4; })
+     .attr("fill", function(d) { return "rgb(0, 138, " + (parseInt((d/60) * 225)) + ")"; });
+
+  svg.selectAll("text")
+     .data(nds)
+     .transition()
+     .text(function(d) { return parseInt(d);})
+     .attr("text-anchor", "middle")
+     .attr("x", function(d, i) { return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2; })
+     .attr("y", function(d) { return h - (d * 4) + 14; });
+
 },500);
 ```
 # Binding events
-#### Binding event
+#### Binding event on SVG element
+```
+//Width and height
+var w = 900;
+var h = 300;
+var barPadding = 1;
+
+function rnd_nums(from, to, N) {
+  var dataset_ = [];
+  for (var i = 0; i < N; i++) {
+    var newNumber = from + (Math.random() * to);  
+    dataset_ = dataset_.concat(newNumber); 
+  }
+  return dataset_
+}
+
+dataset = rnd_nums(5,60,25);
+
+//Create SVG element
+var svg = d3.select("body")
+            .append("svg")
+	    .attr("width", w)
+	    .attr("height", h);
+
+svg.selectAll("rect")
+   .data(dataset)
+   .enter()
+   .append("rect")
+   .attr("x", function(d, i) { return i * (w / dataset.length); })
+   .attr("y", function(d) { return h - (d * 4); })
+   .attr("width", w / dataset.length - barPadding)
+   .attr("height", function(d) { return d * 4; })
+   .attr("fill", function(d) { return "rgb(0, 138, " + (parseInt((d/60) * 225)) + ")"; })
+   .on('click', function(d,i) {
+       // handle events here
+       // d - datum
+       // i - identifier or index
+       // this - the `<rect>` that was clicked
+       nds = rnd_nums(5,60,25);
+       d3.select(this)
+         .transition()
+         .duration(300)
+         .attr("height",nds[i]*4)
+         .attr("y", h - (nds[i] * 4))
+         .attr("fill", "rgb(0, 138, " + (parseInt((nds[i]/60) * 225)) + ")");
+    });
+
+var lbls = svg.selectAll("text")
+              .data(dataset)
+              .enter()
+              .append("text")
+              .text(function(d) { return parseInt(d);})
+              .attr("text-anchor", "middle")
+              .attr("x", function(d, i) { return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2;})
+              .attr("y", function(d) { return h - (d * 4) + 14; })
+              .attr("font-family", "sans-serif")
+              .attr("font-size", "11px")
+              .attr("fill", "white");
+```
