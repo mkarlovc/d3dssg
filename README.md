@@ -1,5 +1,28 @@
 # D3.js teachout at DSSG 2015
 
+# Index
+
+* Fundementals
+  * HTML
+  * CSS
+  * SVG
+  * JavaScript
+* Building blocks
+  * Adding elements
+  * Binding data
+  * Drawing divs
+  * Using SVG
+  * Transitions
+  * Binding events
+* Examples
+  * Barchart
+  * Network
+  * Something different
+* Resources
+  * Scott Murray tutorial
+  * Transitions
+  * D3.js examples
+ 
 # Visualizing Data with Web Standards
 D3 is a **JavaScript** library that makes visualization easier without introducing a new way of representing an image, but doing transformations using existing standards - namely **HTML**, **CSS** and **SVG**.
 
