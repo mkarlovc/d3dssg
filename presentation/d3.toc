@@ -1,3 +1,0 @@
-\beamer@endinputifotherversion {3.24pt}
-\beamer@sectionintoc {1}{Fundementals}{3}{0}{1}
-\beamer@sectionintoc {2}{Building blocks}{6}{0}{2}
