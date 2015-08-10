@@ -450,7 +450,10 @@ var lbls = svg.selectAll("text")
 .attr("fill", "white");
 ```
 # Examples
-#### Barchart
+#### Barchart *(adapted from: https://gist.github.com/mbostock/3885304)*
+CODE: https://github.com/mkarlovc/d3dssg/blob/master/examples/exp_1_bar.html
+
+DEMO: http://mkarlovc.github.io/d3dssg/examples/exp_1_bar.html
 
 #### Network *(adapted from http://bl.ocks.org/mbostock/4062045#miserables.json)*
 CODE: https://github.com/mkarlovc/d3dssg/blob/master/examples/exp_2_net.html
