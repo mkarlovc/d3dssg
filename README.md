@@ -240,7 +240,7 @@ There are a number of visual elements that you can include between those svg tag
 ```
 Layering and Drawing Order depends on initialization of objects
 
-SVG object can be transparent and have bumch of other controlable attributes.
+SVG object can be transparent and have many other visual attributes.
 #### Binding data and drawing SVG
 http://mkarlovc.github.io/d3dssg/buildingblocks/11.html
 ```
