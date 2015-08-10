@@ -1,5 +1,5 @@
 # D3.js teachout at DSSG 2015
-This is a tutorial on D3.js library for data visualization. The goal of the tutorial is to introduce fundementals of D3, basic building blocks and introduce some visualization examples to the 2015 Data Science for Social Good fellows.
+This is a tutorial on D3.js library for data visualization. The goal of the tutorial is to introduce fundementals of D3, basic building blocks and show some visualization examples to the 2015 Data Science for Social Good fellows.
 
 # Index
 
