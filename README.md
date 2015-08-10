@@ -27,7 +27,8 @@ D3 is a **JavaScript** library that makes visualization easier without introduci
 # Fundementals
 #### HTML
 Hypertext Markup Language is used to structure content for web browsers. The simplest HTML page looks like this:
-```<html>
+```
+<html>
     <head>
         <title>Page Title</title>
     </head>
