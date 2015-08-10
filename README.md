@@ -1,4 +1,5 @@
 # D3.js teachout at DSSG 2015
+This is a tutorial on D3.js library for data visualization. The goal of the tutorial is to introduce fundementals of D3, basic building blocks and introduce some visualization examples to the 2015 Data Science for Social Good fellows.
 
 # Index
 
@@ -450,7 +451,10 @@ var lbls = svg.selectAll("text")
 .attr("fill", "white");
 ```
 # Examples
-#### Barchart
+#### Barchart *(adapted from: https://gist.github.com/mbostock/3885304)*
+CODE: https://github.com/mkarlovc/d3dssg/blob/master/examples/exp_1_bar.html
+
+DEMO: http://mkarlovc.github.io/d3dssg/examples/exp_1_bar.html
 
 #### Network *(adapted from http://bl.ocks.org/mbostock/4062045#miserables.json)*
 CODE: https://github.com/mkarlovc/d3dssg/blob/master/examples/exp_2_net.html
